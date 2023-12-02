@@ -30,7 +30,7 @@ namespace Cumulative_HTTP5112.Controllers
             Conn.Open();
 
             MySqlCommand cmd = Conn.CreateCommand();
-
+            /// This query will find for searching data based on searchKey; 
             cmd.CommandText = "Select * from Teachers where lower(teacherfname) like lower(@key) or lower(teacherlname) like lower(@key) or lower(concat(teacherfname, ' ', teacherlname)) like lower(@key)";
 
             cmd.Parameters.AddWithValue("@key", "%" + SearchKey + "%");
@@ -145,7 +145,7 @@ namespace Cumulative_HTTP5112.Controllers
         /// }
         /// </example>
         [HttpPost]
-///        [EnableCors(origins: "*", methods: "*", headers: "*")]
+    ///    [EnableCors(origins: "*", methods: "*", headers: "*")]
         public void AddTeacher([FromBody] Teacher NewTeacher)
         {
 

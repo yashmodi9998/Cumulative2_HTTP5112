@@ -2,23 +2,50 @@
     ViewBag.Title = "New";
 }
 <script>
-   /* window.onload = displayLoad;
+    window.onload = displayLoad;
     function displayLoad() {
         var formHandle = document.forms.form_data;
         formHandle.onsubmit = processForm;
+
         function processForm() {
             var TeacherFname = formHandle.TeacherFname;
             var TeacherLname = formHandle.TeacherLname;;
             var EmployeeNumber = formHandle.EmployeeNumber;
             var HireDate = formHandle.HireDate;
             var Salary = formHandle.Salary;
-            if (TeacherFname === "" || TeacherLname === "" || EmployeeNumber === "" ||  Salary === "") {
-                alert("Please Fill All Data");
+
+            if (TeacherFname === "") {               
+                alert("Please Enter First name ");
+                TeacherFname.focus();
                 return false;
             }
+            if (TeacherLname === "") {
 
+                alert("Please Enter Last name ");
+                TeacherLname.focus();
+                return false;
+            }
+            if (EmployeeNumber === "") {
+
+                alert("Please Enter Employee Number ");
+                EmployeeNumber.focus();
+                return false;
+            }
+            if (HireDate === "") {
+
+                alert("Please Enter Hiring Date ");
+                HireDate.focus();
+                return false;
+            }
+            if (Salary === "") {
+
+                alert("Please Enter Salary ");
+                Salary.focus();
+                return false;
+            }
+         
         }
-    }*/
+    }
    </script>
 
 <div id="containershow">
