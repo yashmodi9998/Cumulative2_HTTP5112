@@ -114,9 +114,24 @@ namespace Cumulative_HTTP5112.Controllers
         {
             MySqlConnection Conn = DbCon.AccessDatabase();
 
+            // open connection
             Conn.Open();
 
+            // creating command for query
             MySqlCommand cmd = Conn.CreateCommand();
+
+            cmd.CommandText = "DELETE FROM classes WHERE classes.teacherid = @teacherID";
+
+            // sanitizing data
+            cmd.Parameters.AddWithValue("@teacherID", id);
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            // close connection
+            Conn.Close();
+
+            Conn.Open();
 
             cmd.CommandText = "Delete from teachers where teacherid=@id";
             cmd.Parameters.AddWithValue("@id", id);
@@ -162,13 +177,10 @@ namespace Cumulative_HTTP5112.Controllers
             cmd.Parameters.AddWithValue("@HireDate", NewTeacher.HireDate);
             cmd.Parameters.AddWithValue("@Salary", NewTeacher.Salary);
             cmd.Prepare();
-
             cmd.ExecuteNonQuery();
-
             Conn.Close();
 }
         }
 
 
-   // }
 }
